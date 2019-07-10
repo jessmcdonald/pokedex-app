@@ -1,0 +1,65 @@
+:root {
+  --pikachuyellow: #FAD61D;
+  --squirtleturquoise: #55A3AB;
+  --squirtlelightturquoise: #A2D7D5;
+  --jigglypuffdarkpink: #E3ABB5;
+  --jigglypufflightpink: #F5D9E2;
+
+  --fontweight-bold: 700;
+  --fontweight-regular: 400;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 25px;
+}
+
+header .logo {
+  width: 30%;
+}
+
+header .logo img {
+  width: 100%;
+}
+
+body {
+  background-color: var(--pikachuyellow);
+  font-family: 'Roboto', sans-serif;
+  font-weight: var(--fontweight-regular);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  margin-left: 40px;
+}
+
+h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 26px;
+}
+
+h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  line-height: 0px;
+  margin-bottom: 0;
+}
+
+.pokedex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 40px;
+}
+
+.pokemon {
+  padding: 10px;
+  border-style: dotted;
+  border-width: 4px;
+}
