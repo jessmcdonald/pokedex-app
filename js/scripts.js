@@ -7,15 +7,8 @@ const pokemons = [
 ];
 
 pokemons.forEach(pokemon =>
-  document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + ' (it is a big/small pokemon!)<br><b>types:</b> ' + pokemon.types + '</div><p>'));
-
-
-/* this ifelse  doesn't work but I can't figure out why!!
-
-if (pokemon.height > 65) {
-  document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + ' (woah that's a big pokemon!)<br><b>types:</b> ' + pokemon.types + '</div><p>');
-} else {
-  document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'));
-};
-
-*/
+  (pokemon.height > 65) ?
+    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '   (woah that\'s big!)<br><b>types:</b> ' + pokemon.types + '</div><p>'))
+    :
+    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'))
+  );
