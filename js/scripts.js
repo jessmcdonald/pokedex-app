@@ -12,3 +12,12 @@ pokemons.forEach(pokemon =>
     :
     (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'))
   );
+
+
+/* WIP
+  function changeTypesFontColor() {
+        if (pokemon.types = 'fire' {
+        text.color = '#99C262';
+        } else
+
+*/
