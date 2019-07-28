@@ -10,7 +10,7 @@ const pokemonRepository = (function () {
 
   function add(pokemon) {
       pokemons.push(pokemon);
-    },
+    }
   function getAll() {
       return pokemons;
     }
@@ -21,7 +21,7 @@ const pokemonRepository = (function () {
 })();
 
 //NEW foreach to print pokemon details
-pokemonRepository.getAll.forEach(pokemon =>
+pokemonRepository.getAll().forEach(pokemon =>
   (pokemon.height > 65) ?
     (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + ' (woah that\'s big!)<br><b>types:</b> ' + pokemon.types + '</div><p>'))
     :
