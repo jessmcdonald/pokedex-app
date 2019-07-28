@@ -1,11 +1,11 @@
 
 const pokemonRepository = (function () {
   const pokemons = [
-    {name: 'Bulbasaur', height: 70, types: ['grass', ' poison'], img: 'img/bulbasaur.png'},
+    {name: 'Bulbasaur', height: 70, types: ['grass', 'poison'], img: 'img/bulbasaur.png'},
     {name: 'Charmander', height: 60, types: ['fire'], img: 'img/charmander.png'},
     {name: 'Squirtle', height: 50, types: ['water'], img: 'img/squirtle.png'},
     {name: 'Pikachu', height: 40, types: ['electric'], img: 'img/pikachu.png'},
-    {name: 'Jigglypuff', height: 50, types: ['fairy', ' normal'], img: 'img/jigglypuff.png'}
+    {name: 'Jigglypuff', height: 50, types: ['fairy', 'normal'], img: 'img/jigglypuff.png'}
   ];
 
   function add(pokemon) {
@@ -14,19 +14,53 @@ const pokemonRepository = (function () {
   function getAll() {
       return pokemons;
     }
+  function getPokemonHeight(pokemonHeight){
+      return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
+           : (pokemonHeight < 45) ? pokemonHeight + 'cm (small one!)<br>'
+           :  pokemonHeight + 'cm<br>';
+      }
+  function getPokemonTypes(pokemonTypes){
+    let result = ''
+      if(pokemonTypes.includes('fire')){
+        result += '<div style= "color: red";>fire</div>'
+      }
+      if(pokemonTypes.includes('poison')){
+        result += '<div style= "color: purple";>poison</div>'
+      }
+      if(pokemonTypes.includes('fairy')){
+        result += '<div style= "color: #FF007E";>fairy</div>'
+      }
+      if(pokemonTypes.includes('normal')){
+        result += '<div style= "color: grey";>normal</div>'
+      }
+      if(pokemonTypes.includes('electric')){
+        result += '<div style= "color: #FF9933";>electric</div>'
+      }
+      if(pokemonTypes.includes('water')){
+        result += '<div style= "color: blue";>water</div>'
+      }
+      if(pokemonTypes.includes('grass')){
+        result += '<div style= "color: green";>grass</div>'
+      }
+        return result
+  }
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    getPokemonHeight: getPokemonHeight,
+    getPokemonTypes: getPokemonTypes
   };
 })();
 
 //NEW foreach to print pokemon details
 pokemonRepository.getAll().forEach(pokemon =>
-  (pokemon.height > 65) ?
-    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + ' (woah that\'s big!)<br><b>types:</b> ' + pokemon.types + '</div><p>'))
-    :
-    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'))
+  document.write
+  (`<div class="pokemon"><img src="${pokemon.img}" width=200><br>
+  <h3>${pokemon.name}</h3><br>
+  <b>height: </b>${pokemonRepository.getPokemonHeight(pokemon.height)}<br>
+  <b>types: <div class="pokemontypes">${pokemonRepository.getPokemonTypes(pokemon.types)}</b></div></div><p>`)
   );
+
 
 /*OLD for loop to print pokemon details
 for (var i = 0; i < pokemons.length; i++){
@@ -43,40 +77,4 @@ pokemons.forEach(pokemon =>
     :
     (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'))
   );
-*/
-
-/*
-//function to get pokemon height
-function getPokemonHeight(pokemonHeight) {
-  return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
-       : (pokemonHeight < 45) ? pokemonHeight + 'cm (small one!)<br>'
-       :  pokemonHeight + 'cm<br>';
-  }
-//write specific pokemon height
-document.write(getPokemonHeight(pokemons[0].height));
-//write all pokemon heights
-pokemons.forEach(pokemon =>
-    document.write(getPokemonHeight(pokemon.height)));
-*/
-
-/*I used the same logic as worked for the height but I could not get it to work for types,
-is it because types contains an array?
-how can I solve this correctly?
-
-//function to get pokemon types, I tried a few ideas but none worked!
-function getPokemonTypes(pokemonTypes) {
-  return (pokemonTypes === 'fairy') ? '<style="color: pink";>' + pokemonType + '</style><br>'
-       : (pokemonTypes === 'normal') ? '<style="color: grey";>' + pokemonType + '</style><br>'
-       : (pokemonTypes.includes ('water')) ? '<style="color: blue";>' + pokemonType + '</style><br>'
-       : (pokemonTypes.includes ('grass')) ? '<style="color: green";>' + pokemonType + '</style><br>'
-       : (pokemonTypes === types.includes ('fire')) ? '<style="color: orange";>' + pokemonType + '</style><br>'
-       : (pokemonTypes === types.includes ('electric')) ? '<style="color: yellow";>' + pokemonType + '</style><br>'
-       : (pokemonTypes.includes 'poison') ? '<style="color: purple";>' + pokemonType + '</style><br>';
-    }
-
-//write specific pokemon types
-document.write(getPokemonTypes(pokemons[1].types));
-//write all pokemon types
-  pokemons.forEach(pokemon =>
-    document.write(getPokemonTypes(pokemon.types)));
 */
