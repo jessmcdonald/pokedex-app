@@ -14,9 +14,9 @@
 .page-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
-  padding: 25px;
+  padding: 10px;
 }
 
 header .logo {
@@ -25,6 +25,16 @@ header .logo {
 
 header .logo img {
   width: 100%;
+  padding: 5px;
+}
+
+header .pokedexpic {
+  width: 10%;
+}
+
+header .pokedexpic img {
+  width: 100%;
+  padding: 5px;
 }
 
 body {
