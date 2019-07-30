@@ -52,6 +52,21 @@ const pokemonRepository = (function () {
   };
 })();
 
+//create new variable
+var $newList = document.querySelector(".pokemon-list")
+
+//UPDATED foreach to print pokemon details
+pokemonRepository.getAll().forEach(pokemon => {
+  var $listItem = document.createElement("li");
+  var button = document.createElement("button");
+  button.innerText = "${pokemon.name}";
+  $button.classlist.add("name-button");
+  $listItem.appendChild(button);
+  $newList.appendChild(li);
+});
+
+
+/*
 //NEW foreach to print pokemon details
 pokemonRepository.getAll().forEach(pokemon =>
   document.write
@@ -61,8 +76,7 @@ pokemonRepository.getAll().forEach(pokemon =>
   <b>types: <div class="pokemontypes">${pokemonRepository.getPokemonTypes(pokemon.types)}</b></div></div><p>`)
   );
 
-
-/*OLD for loop to print pokemon details
+//OLD for loop to print pokemon details
 for (var i = 0; i < pokemons.length; i++){
   if(pokemons[i].height > 65){
     document.write('<div class="pokemon"><img src=' + pokemons[i].img + ' width=200><br><h3>' + pokemons[i].name + '</h4><br><b>height: </b>' + pokemons[i].height + ' (woah that\'s big!)<br><b>types: </b>' + pokemons[i].types + '</div><p>')
