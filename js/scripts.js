@@ -14,17 +14,22 @@ const pokemonRepository = (function () {
   function getAll() {
       return pokemons;
     }
-  function addListItem(pokemon) {
+  function addListItem(pokemon, $pokemon-list ) {
     var button = document.createElement("button");
     button.innerText = "${pokemon.name}";
     $button.classlist.add("name-button");
     $listItem.appendChild(button);
+    $button.addEventListener('click', function(event) {showDetails(pokemon);
+    });
+  }
+  function showDetails(pokemon) {
+    console.log${pokemon.name};
   }
   function getPokemonHeight(pokemonHeight){
-      return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
-           : (pokemonHeight < 45) ? pokemonHeight + 'cm (small one!)<br>'
-           :  pokemonHeight + 'cm<br>';
-      }
+    return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
+         : (pokemonHeight < 45) ? pokemonHeight + 'cm (small one!)<br>'
+         :  pokemonHeight + 'cm<br>';
+    }
   function getPokemonTypes(pokemonTypes){
     let result = ''
       if(pokemonTypes.includes('fire')){
@@ -50,6 +55,7 @@ const pokemonRepository = (function () {
       }
         return result
   }
+  //public functions
   return {
     add: add,
     getAll: getAll,
