@@ -8,7 +8,7 @@ const pokemonRepository = (function () {
     {name: 'Jigglypuff', height: 50, types: ['fairy', 'normal'], img: 'img/jigglypuff.png'}
   ];
 
-  function add(pokemon) {
+  function addpokemon(pokemon) {
       pokemons.push(pokemon);
     }
   function getAll() {
@@ -76,7 +76,7 @@ const pokemonRepository = (function () {
   }
   //public functions
   return {
-    add: add,
+    addpokemon: addpokemon,
     getAll: getAll,
     addListItem: addListItem,
     getPokemonHeight: getPokemonHeight,
