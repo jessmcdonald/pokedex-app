@@ -76,7 +76,6 @@ const pokemonRepository = (function () {
   }
   //public functions
   return {
-    add: add,
     getAll: getAll,
     addListItem: addListItem,
     getPokemonHeight: getPokemonHeight,
