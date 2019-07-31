@@ -29,7 +29,7 @@ const pokemonRepository = (function () {
     $newList.appendChild($listItem);
 
     //add text to button
-    button.innerText = pokemon.name;
+    $button.innerText = pokemon.name;
 
     //append button to list
     $listItem.appendChild($button);
