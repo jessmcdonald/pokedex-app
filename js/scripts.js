@@ -23,7 +23,7 @@ const pokemonRepository = (function () {
     var $listItem = document.createElement("li");
 
     //create a button
-    var button = document.createElement("button");
+    var $button = document.createElement("button");
 
     //append list to $newList
     $newList.appendChild($listItem);
