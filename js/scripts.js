@@ -35,7 +35,7 @@ const pokemonRepository = (function () {
     $listItem.appendChild($button);
 
     //add class to button
-    $button.classlist.add("name-button");
+    $button.classList.add("name-button");
 
     //add event listener to list
     $button.addEventListener('click', function(event) {showDetails(pokemon);
