@@ -14,16 +14,35 @@ const pokemonRepository = (function () {
   function getAll() {
       return pokemons;
     }
-  function addListItem(pokemon, $pokemon-list ) {
+  function addListItem(pokemon) {
+
+    //select already existing element
+    var $newList = document.querySelector(".pokemon-list")
+
+    //create li
+    var $listItem = document.createElement("li");
+
+    //create a button
     var button = document.createElement("button");
-    button.innerText = "${pokemon.name}";
+
+    //append list to $newList
+    $newList.appendChild($listItem);
+
+    //add text to button
+    button.innerText = pokemon.name;
+
+    //append button to list
+    $listItem.appendChild($button);
+
+    //add class to button
     $button.classlist.add("name-button");
-    $listItem.appendChild(button);
+
+    //add event listener to list
     $button.addEventListener('click', function(event) {showDetails(pokemon);
     });
   }
   function showDetails(pokemon) {
-    console.log${pokemon.name};
+    console.log(pokemon.name);
   }
   function getPokemonHeight(pokemonHeight){
     return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
@@ -59,19 +78,16 @@ const pokemonRepository = (function () {
   return {
     add: add,
     getAll: getAll,
-    getListItem: getListItem,
+    addListItem: addListItem,
     getPokemonHeight: getPokemonHeight,
     getPokemonTypes: getPokemonTypes
   };
 })();
 
-//create new variable
-var $newList = document.querySelector(".pokemon-list")
-
-//UPDATED foreach to print pokemon details
+//getAll pokemons and loop through each one
 pokemonRepository.getAll().forEach(pokemon => {
-  var $listItem = document.createElement("li");
-  $newList.appendChild(li);
+  //call addList function which takes pokemon
+  //create list & button & appends name to the button
   pokemonRepository.addListItem(pokemon);
 });
 
