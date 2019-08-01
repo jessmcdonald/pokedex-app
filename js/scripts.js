@@ -72,7 +72,7 @@ var pokemonRepository = (function () {
 
 //fetch data from API
 function loadList() {
-  return fetch('https://pokeapi.co/api/v2/pokemon').then(function (response) {
+  return fetch(apiUrl).then(function (response) {
     return response.json();
   }).then(function (json) {
     json.results.forEach(function (pokemon) {
