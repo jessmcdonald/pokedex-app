@@ -14,7 +14,7 @@ var pokemonRepository = (function () {
   function addListItem(pokemon) {
 
     //select already existing element
-    var $newList = document.querySelector(".pokemon-list")
+    var $newList = document.querySelector(".pokemon-list");
 
     //create li
     var $listItem = document.createElement("li");
