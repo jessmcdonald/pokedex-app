@@ -39,25 +39,25 @@ header .pokedexpic img {
 
 body {
   background-color: var(--pikachuyellow);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fira Code', monospace;
   font-weight: var(--fontweight-regular);
   font-size: 16px;
   line-height: 1.6;
 }
 
 h1 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fira Code', monospace;
   font-size: 30px;
   margin-left: 40px;
 }
 
 h2 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fira Code', monospace;
   font-size: 26px;
 }
 
 h3 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fira Code', monospace;
   font-size: 22px;
   line-height: 0px;
   margin-bottom: 0;
@@ -72,56 +72,39 @@ li {
 .pokemon-list {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-between;
 }
 
 .name-button {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fira Code', monospace;
   color: #fff;
   float: left;
   background-color: var(--pokemonblue);
   border: 2px solid #fff;
   width: 100%;
   font-size: 25px;
-  padding: 28px 16px;
+  padding: 18px 16px;
   border-radius: 6px;
   opacity: 0.9;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
+  margin-bottom: 8px;
   }
 
 .name-button:hover {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fira Code', monospace;
   color: #fff;
   float: left;
   background-color: var(--pokemonblue);
   border: 2px solid #fff;
   width: 100%;
   font-size: 25px;
-  padding: 28px 16px;
+  padding: 18px 16px;
   border-radius: 18px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   opacity: 1;
 }
-
-.pokedex {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 40px;
-  align-items: stretch;
-}
-
-.pokemon {
-  padding: 10px;
-  border-style: solid;
-  border-width: 4px;
-  border-color: var(--pokemonblue);
-  }
-
-.pokemontypes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  }
