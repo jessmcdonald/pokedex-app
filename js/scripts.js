@@ -3,6 +3,10 @@ var pokemonRepository = (function () {
   var pokemons = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+  // ~~~~~~~~~~~~~~~~~~~~~
+  // repository functions
+  // ~~~~~~~~~~~~~~~~~~~~~
+
   function add(pokemon) {
       pokemons.push(pokemon);
     }
@@ -40,9 +44,9 @@ var pokemonRepository = (function () {
   }
 
   function getPokemonHeight(pokemonHeight){
-    return (pokemonHeight > 65) ? pokemonHeight + 'cm (woah that\'s big!)<br>'
-         : (pokemonHeight < 45) ? pokemonHeight + 'cm (small one!)<br>'
-         :  pokemonHeight + 'cm<br>';
+    return (pokemonHeight > 20) ? (pokemonHeight / 10) + 'm (woah that\'s big!)<br>'
+         : (pokemonHeight < 10) ? (pokemonHeight / 10) + 'm (small one!)<br>'
+         :  (pokemonHeight / 10) + 'm<br>';
     }
   function getPokemonTypes(pokemonTypes){
     let result = ''
@@ -96,20 +100,81 @@ function loadDetails(pokemon) {
   return fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
-    // Now we add the details to the item
+    // now add the details to the item
     pokemon.imageUrl = details.sprites.front_default;
     pokemon.height = details.height;
-    pokemon.types = Object.keys(details.types);
+    pokemon.types = [];
+          details.types.forEach(function(type) {
+            pokemon.types.push(type.type.name);
+          });
   }).catch(function (e) {
     console.error(e);
   });
 }
 
+
+// ~~~~~~~~~~~~~~~~~~~~~
+// pokemon info modal functions
+// ~~~~~~~~~~~~~~~~~~~~~
+
+//create pokemon info modal
+function showPokemonModal (pokemon) {
+  var $pokemonModalContainer = document.querySelector("#modal-container");
+  //clear existing content
+  $pokemonModalContainer.innerHTML = "";
+  // create modal div and assign class
+  var pokemonModal = document.createElement("div");
+  pokemonModal.classList.add("pokemonmodal")
+
+  var closeButtonElement = document.createElement("button");
+  closeButtonElement.classList.add("pokemonmodal-close");
+  closeButtonElement.innerText = "Close";
+  closeButtonElement.addEventListener("click", hidePokemonModal);
+
+  var nameElement = document.createElement("h1");
+  nameElement.innerText = pokemon.name;
+
+  var infoElement = document.createElement("p");
+  infoElement.innerHTML = `<b>Height:</b> ${pokemonRepository.getPokemonHeight(pokemon.height)}
+  <br><b>Types:</b> ${pokemonRepository.getPokemonTypes(pokemon.types)}
+  <br><img src="${pokemon.imageUrl}">`;
+
+  pokemonModal.appendChild(closeButtonElement);
+  pokemonModal.appendChild(nameElement);
+  pokemonModal.appendChild(infoElement);
+  $pokemonModalContainer.appendChild(pokemonModal);
+
+  $pokemonModalContainer.classList.add("is-visible");
+  }
+
+function hidePokemonModal () {
+  var $pokemonModalContainer = document.querySelector("#modal-container");
+  $pokemonModalContainer.classList.remove("is-visible");
+}
+
+//show pokemon info modal
 function showDetails(pokemon) {
-pokemonRepository.loadDetails(pokemon).then(function () {
-  console.log(pokemon);
+pokemonRepository
+  .loadDetails(pokemon)
+  .then(function () {
+    showPokemonModal(pokemon);
 });
 }
+
+window.addEventListener("keydown", (e) => {
+  var $pokemonModalContainer = document.querySelector("#modal-container");
+  if (e.key === 'Escape' && $pokemonModalContainer.classList.contains("is-visible")){
+    hidePokemonModal();
+  }
+});
+
+document.querySelector('#modal-container').addEventListener("click", (e) => {
+  var target = e.target;
+  var $pokemonModalContainer = document.querySelector("#modal-container");
+  if (target === $pokemonModalContainer) {
+    hidePokemonModal();
+  }
+});
 
   //public functions
   return {
@@ -120,9 +185,12 @@ pokemonRepository.loadDetails(pokemon).then(function () {
     addListItem: addListItem,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showPokemonModal: showPokemonModal,
+    hidePokemonModal: hidePokemonModal
   };
 })();
+
 
 pokemonRepository.loadList().then(function() {
   // Now the data is loaded!
