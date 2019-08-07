@@ -66,13 +66,13 @@ h3 {
 li {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   }
 
 .pokemon-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .name-button {
@@ -157,4 +157,18 @@ li {
   background: var(--jigglypufflightpink);
   color: 000;
   text-decoration: underline;
+}
+
+#pokeSearchInput {
+  background-image: url("../img/icons/search.png"); /* Add a search icon to input */
+  background-position: 8px 8px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 50%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-left: 40px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  /* Add some space below the input */
 }
