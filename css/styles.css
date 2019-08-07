@@ -65,6 +65,7 @@ h3 {
 
 li {
   display: flex;
+  flex-flow: row wrap;
   width: 15%;
   justify-content: space-around;
   }
