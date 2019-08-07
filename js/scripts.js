@@ -50,26 +50,56 @@ var pokemonRepository = (function () {
     }
   function getPokemonTypes(pokemonTypes){
     let result = ''
-      if(pokemonTypes.includes('fire')){
-        result += '<div style= "color: red";>fire</div>'
+      if(pokemonTypes.includes('bug')){
+        result += '<img src="img/types/Bug.png">'
       }
-      if(pokemonTypes.includes('poison')){
-        result += '<div style= "color: purple";>poison</div>'
+      if(pokemonTypes.includes('dark')){
+        result += '<img src="img/types/Dark.png">'
       }
-      if(pokemonTypes.includes('fairy')){
-        result += '<div style= "color: #FF007E";>fairy</div>'
-      }
-      if(pokemonTypes.includes('normal')){
-        result += '<div style= "color: grey";>normal</div>'
+      if(pokemonTypes.includes('dragon')){
+        result += '<img src="img/types/Dragon.png">'
       }
       if(pokemonTypes.includes('electric')){
-        result += '<div style= "color: #FF9933";>electric</div>'
+        result += '<img src="img/types/Electric.png">'
       }
-      if(pokemonTypes.includes('water')){
-        result += '<div style= "color: blue";>water</div>'
+      if(pokemonTypes.includes('fairy')){
+        result += '<img src="img/types/Fairy.png">'
+      }
+      if(pokemonTypes.includes('fighting')){
+        result += '<img src="img/types/Fighting.png">'
+      }
+      if(pokemonTypes.includes('fire')){
+        result += '<img src="img/types/Fire.png">'
+      }
+      if(pokemonTypes.includes('ghost')){
+        result += '<img src="img/types/Ghost.png">'
       }
       if(pokemonTypes.includes('grass')){
-        result += '<div style= "color: green";>grass</div>'
+        result += '<img src="img/types/Grass.png">'
+      }
+      if(pokemonTypes.includes('ground')){
+        result += '<img src="img/types/Ground.png">'
+      }
+      if(pokemonTypes.includes('ice')){
+        result += '<img src="img/types/Ice.png">'
+      }
+      if(pokemonTypes.includes('normal')){
+        result += '<img src="img/types/Normal.png">'
+      }
+      if(pokemonTypes.includes('poison')){
+        result += '<img src="img/types/Poison.png">'
+      }
+      if(pokemonTypes.includes('psychic')){
+        result += '<img src="img/types/Psychic.png">'
+      }
+      if(pokemonTypes.includes('rock')){
+        result += '<img src="img/types/Rock.png">'
+      }
+      if(pokemonTypes.includes('steel')){
+        result += '<img src="img/types/Steel.png">'
+      }
+      if(pokemonTypes.includes('water')){
+        result += '<img src="img/types/Water.png">'
       }
         return result
   }
