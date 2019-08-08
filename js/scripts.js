@@ -198,7 +198,7 @@ function searchFunction() {
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById("pokeSearchInput");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("pokemon-list");
+  ul = document.querySelector(".pokemon-list");
   li = ul.getElementsByTagName("li");
 
 
