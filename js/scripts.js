@@ -2,7 +2,7 @@
 var pokemonRepository = (function () {
   const searchInput = document.querySelector('.search-bar__input');
   var pokemons = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
 
   // ~~~~~~~~~~~~~~~~~~~~~
   // repository functions
