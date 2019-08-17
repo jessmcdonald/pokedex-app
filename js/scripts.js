@@ -231,7 +231,6 @@ document.querySelector('#modal-container').addEventListener("click", (e) => {
 });
 
 
-
   //public functions
   return {
     add: add,
@@ -255,39 +254,3 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-
-
-/*
-//getAll pokemons and loop through each one
-pokemonRepository.getAll().forEach(pokemon => {
-  //call addList function which takes pokemon
-  //create list & button & appends name to the button
-  pokemonRepository.addListItem(pokemon);
-});
-
-//NEW foreach to print pokemon details
-pokemonRepository.getAll().forEach(pokemon =>
-  document.write
-  (`<div class="pokemon"><img src="${pokemon.img}" width=200><br>
-  <h3>${pokemon.name}</h3><br>
-  <b>height: </b>${pokemonRepository.getPokemonHeight(pokemon.height)}<br>
-  <b>types: <div class="pokemontypes">${pokemonRepository.getPokemonTypes(pokemon.types)}</b></div></div><p>`)
-  );
-
-//OLD for loop to print pokemon details
-for (var i = 0; i < pokemons.length; i++){
-  if(pokemons[i].height > 65){
-    document.write('<div class="pokemon"><img src=' + pokemons[i].img + ' width=200><br><h3>' + pokemons[i].name + '</h4><br><b>height: </b>' + pokemons[i].height + ' (woah that\'s big!)<br><b>types: </b>' + pokemons[i].types + '</div><p>')
-  }else{
-    document.write('<div class="pokemon"><img src=' + pokemons[i].img + ' width=200><br><h3>' + pokemons[i].name + '</h4><br><b>height: </b>' + pokemons[i].height + '<br><b>types: </b>' + pokemons[i].types + '</div><p>')
-  }
-}
-//OLD foreach to print pokemon details
-pokemons.forEach(pokemon =>
-  (pokemon.height > 65) ?
-    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + ' (woah that\'s big!)<br><b>types:</b> ' + pokemon.types + '</div><p>'))
-    :
-    (document.write('<div class="pokemon"><img src="' + pokemon.img + '" width=200><br><h3>' + pokemon.name + '</h4><br><b>height:</b> ' + pokemon.height + '<br><b>types:</b> ' + pokemon.types + '</div><p>'))
-  );
-*/
